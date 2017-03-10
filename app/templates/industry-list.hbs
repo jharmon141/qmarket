@@ -3,18 +3,13 @@
         <span class="glyphicon glyphicon-align-center" aria-hidden="true"></span> Industries
     </button>
 </div>
-<div id="industries" class="col-md-12 text-center">
-    {{each Industries as |industry| }}
-    <button id={{industry.tag}} type='button' class="btn btn-default btn-sm  {{if showingList visible}}">
-        <span class='glyphicon glyphicon-stats' aria-hidden='true'></span>
-        {{industry.name}}
-    </button>
-{{/each}}
-</div>
-
-<button id='XLK' type='button' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-stats' aria-hidden='true'></span> Technology </button><button id='XLU' type='button' class='btn btn-default btn-sm'>
-    <span class='glyphicon glyphicon-stats' aria-hidden='true'></span> Utilities </button>
-<button id='XLI' type='button' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-stats' aria-hidden='true'></span> Industrials </button>
-</div>
-
-
+{{#if showingList}}
+    <div id="industries" class="col-md-12 text-center">
+        {{#each industries as |industry| }}
+            <button id={{industry.tag}} {{action 'populateGraph' industry.tag}} type='button' class="btn btn-default btn-sm">
+                <span class='glyphicon glyphicon-stats' aria-hidden='true'></span>
+                {{industry.name}}
+            </button>
+        {{/each}}
+    </div>
+{{/if}}
