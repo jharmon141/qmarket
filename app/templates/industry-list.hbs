@@ -6,10 +6,11 @@
 {{#if showingList}}
     <div id="industries" class="col-md-12 text-center">
         {{#each industries as |industry| }}
-            <button id={{industry.tag}} {{action 'populateGraph' industry.tag}} type='button' class="btn btn-default btn-sm">
+            <button id={{industry.tag}} {{action 'populateGraph' industry}} type='button' class="btn btn-default btn-sm">
                 <span class='glyphicon glyphicon-stats' aria-hidden='true'></span>
                 {{industry.name}}
             </button>
         {{/each}}
     </div>
 {{/if}}
+{{graph-d3 model=industry}}

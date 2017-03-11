@@ -4,6 +4,7 @@ import Industry from '../models/industry';
 export default Ember.Controller.extend({
     showingList: false,
     industries: null, // is array mon!
+    selectedIndustry: null,
     init(...args) {
         this._super(...args);
         let industries = [
@@ -11,15 +12,15 @@ export default Ember.Controller.extend({
             Industry.create({tag: 'XLK', name: 'Technology'}),
             Industry.create({tag: 'XLU', name: 'Utilities'}),
             Industry.create({tag: 'XLI', name: 'Industrials'})
-        ]
+        ];
         this.set('industries', industries);
     },
     actions: {
         toggleList() {
             this.toggleProperty('showingList');
         },
-        goToGraph(tag) {
-            this.transitionTo('graph', tag);
+        populateGraph(industry) {
+            this.set('selectedIndustry', industry);
         }
     }
 });
