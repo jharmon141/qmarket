@@ -6,7 +6,10 @@ import { select } from 'd3-selection';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { extent, min, max } from 'd3-array';
 
+<<<<<<< HEAD
 //d3 graph component
+=======
+>>>>>>> 9531d3a0d4a07e8207babb6cf1af41f5a317aea2
 
 export default Ember.Component.extend({
     model: null, //passed in as attribute is 
