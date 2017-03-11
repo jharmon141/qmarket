@@ -1,16 +1,24 @@
-<div id="industry" class="col-md-12 text-center">
-    <button id="industriesBtn" type="button" {{action "toggleList"}} class="btn btn-default btn-lg">
-        <span class="glyphicon glyphicon-align-center" aria-hidden="true"></span> Industries
-    </button>
-</div>
-{{#if showingList}}
-    <div id="industries" class="col-md-12 text-center">
+<div class="list-container row" > 
+    <div id="industry" class="col-md-12 text-center">
+        <button id="industriesBtn" type="button" {{action "toggleList"}} class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-align-center" aria-hidden="true"></span> Industries
+        </button>
+    </div>
+    {{#if showingList}}
+    <div id="industries" class="col-md-8 col-md-offset-2">
         {{#each industries as |industry| }}
-            <button id={{industry.tag}} {{action 'populateGraph' industry}} type='button' class="btn btn-default btn-sm">
-                <span class='glyphicon glyphicon-stats' aria-hidden='true'></span>
-                {{industry.name}}
-            </button>
+        <button id={{industry.tag}} {{action 'populateGraph' industry}} type='button' class="btn btn-default btn-sm">
+            <span class='glyphicon glyphicon-stats' aria-hidden='true'></span>
+            {{industry.name}}
+        </button>
         {{/each}}
     </div>
+    {{/if}}
+</div>
+
+
+{{#if isFetching}}
+<div class="bitch be waitin">wait please...</div>
+{{else}} 
+{{graph-d3 model=selectedIndustry}}
 {{/if}}
-{{graph-d3 model=industry}}
