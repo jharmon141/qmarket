@@ -28,6 +28,8 @@ main {
    justify-content: center;
 }
 
-.bitch.be.waiting {
-    font-size: 22rem;
+.bitch.be.waitin {
+    margin: 15px auto;
+    text-align: center;
+    font-size: 5rem;
 }
