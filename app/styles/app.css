@@ -1,0 +1,33 @@
+list-container {
+    text-align: center;
+}
+
+.container{
+    padding-top: 20px;
+}
+#nav{
+    padding-bottom: 20px;
+}
+#industry{
+    padding-top: 100px;
+}
+#industriesBtn{
+    margin-bottom: 15px;
+}
+.btn.btn-default.btn-sm{
+    margin: 10px auto;
+}
+
+#industries {
+    display: flex;
+    align-content: space-around;
+}
+
+main {
+   display: flex;
+   justify-content: center;
+}
+
+.bitch.be.waiting {
+    font-size: 22rem;
+}

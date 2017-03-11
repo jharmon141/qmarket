@@ -20,7 +20,14 @@ export default Ember.Controller.extend({
             this.toggleProperty('showingList');
         },
         populateGraph(industry) {
-            this.set('selectedIndustry', industry);
+            this.set('isFetching', true);
+            Industry.fetchTagOneYear(industry.get('tag'))
+                .then(stats => {
+                    industry.set('stats', stats);
+                    this.set('selectedIndustry', industry);
+                })
+                .catch(err => console.error(`fuckedup: ${err}`))
+                .finally(() => this.set('isFetching', false));
         }
     }
 });
